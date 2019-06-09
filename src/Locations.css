@@ -4,7 +4,7 @@
     background: #0282a5;
 }
 
-.locations-title {
+.locations .locations-title {
     font-size: 18px;
     color: #002833;
     text-align: center;
@@ -12,6 +12,35 @@
     border-bottom: 2px solid rgba(0, 40, 51, 0.1);
 }
 
+.locations .locations-filter {
+    display: flex;
+    height: 40px;
+}
+
+.locations .locations-filter-button {
+    padding: 0 20px;
+}
+
+.locations .locations-filter-input {
+    padding: 0 10px;
+    flex: 1;
+}
+
+.locations .locations-wrapper {
+    padding: 30px 0;
+    overflow: scroll;
+}
+
+.locations .locations-wrapper .location {
+    padding: 10px;
+    color: #002833;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+}
+
+.locations .locations-wrapper .location:hover {
+    background: rgba(8, 0, 0, 0.08);
+}
 
 @media screen and (min-width: 998px) {
     .locations {
