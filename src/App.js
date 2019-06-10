@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./reset.css";
 import "./App.css";
 import Header from "./Header";
 import Locations from "./Locations";
@@ -58,7 +57,8 @@ class NeighborhoodApp extends Component {
 
         return await fetch(urlRequest)
             .then(response => response.json())
-            .then(({ response: { venue } }) => venue);
+            .then(({ response: { venue } }) => venue)
+            .catch(() => null);
     }
 
     /**
