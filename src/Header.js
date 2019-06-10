@@ -3,15 +3,12 @@ import './Header.css'
 
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <header className="header">
-                <button className="header-button" onClick={() => this.toggleMenu()}>
-                    X
+                <button 
+                    className="header-button" 
+                    onClick={() => this.props.clickMenu()}>
                 </button>
             </header>
         )

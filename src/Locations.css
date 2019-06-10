@@ -1,7 +1,10 @@
 .locations {
-    width: 80%;
+    width: 70%;
     height: 100%;
     background: #0282a5;
+    z-index: 1;
+    transition: all .2s ease-in-out;
+    overflow: auto;
 }
 
 .locations .locations-title {
@@ -17,10 +20,6 @@
     height: 40px;
 }
 
-.locations .locations-filter-button {
-    padding: 0 20px;
-}
-
 .locations .locations-filter-input {
     padding: 0 10px;
     flex: 1;
@@ -28,7 +27,7 @@
 
 .locations .locations-wrapper {
     padding: 30px 0;
-    overflow: scroll;
+    overflow-y: auto;
 }
 
 .locations .locations-wrapper .location {
@@ -42,8 +41,8 @@
     background: rgba(8, 0, 0, 0.08);
 }
 
-@media screen and (min-width: 998px) {
+@media screen and (min-width: 768px) {
     .locations {
-        width: 350px;
+        width: 300px;
     }
 }

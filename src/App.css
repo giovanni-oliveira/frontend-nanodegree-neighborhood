@@ -1,5 +1,41 @@
+
+body {
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.app-wrapper {
+    transition: transform .2s ease-in-out;
+}
+
+/* As animações são controladas pelo componente pai, o componente Locations possui apenas os estilos básicos */
 .locations {
     position: absolute;
     left: 0;
     top: 0;
+}
+
+.menu-closed .app-wrapper {
+    transform: translateX(0);
+}
+
+.menu-closed .locations {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.menu-opened .app-wrapper {
+    transform: translateX(70%);
+}
+
+.menu-opened .locations {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+@media screen and (min-width: 768px) {
+    .menu-opened .app-wrapper {
+        transform: translateX(300px);
+    }
 }
