@@ -26,3 +26,4 @@ Esse projeto foi criado com [Create React App](https://github.com/facebookincuba
 
 ## Estações
 A lista de estações originalmente foi obtida através do seguinte arquivo [stations.json](https://gist.github.com/rafaelrinaldi/6a82dd1eceed6dfc7deb), de forma que foi alterada e apenas algumas estações foram selecionadas para serem listadas neste projeto.
+O ícone do menu foi obtido através de Icons made by [Smashicons](https://www.flaticon.com/authors/smashicons) do site [www.flaticon.com](https://www.flaticon.com/), licensiado por is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
