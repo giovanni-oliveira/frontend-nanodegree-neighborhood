@@ -65,5 +65,7 @@ export class MapStation extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyATs9UCWYFn2Cx-P0mPjmlpuFmaJI33Nz4'
+    apiKey: 'AIzaSyATs9UCWYFn2Cx-P0mPjmlpuFmaJI33Nz4',
+    v: '1',
+    libraries: ['places']
 })(MapStation);
