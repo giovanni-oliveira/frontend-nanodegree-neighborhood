@@ -4,39 +4,6 @@ import "./Locations.css";
 
 
 class Locations extends Component {
-    constructor(props) {
-        super(props);
-
-        this.allStations = props.data;
-
-        this.state = {
-            stations: [].concat(props.data)
-        }
-    }
-
-    changeStation(stationActive) {
-        this.setState(({ stations }) => {
-            const activeStation = station => {
-                station.pressed = stationActive === station;
-
-                return station;
-            };
-
-            return { stations: stations.map(activeStation) };
-        });
-
-        this.props.activeStation(stationActive);        
-    }
-
-    filterStations(query) {
-        const stationsFiltered = this.allStations.filter( ({title}) => title.includes(query));        
-
-        this.props.changeStation(stationsFiltered);
-        this.setState({
-            stations: stationsFiltered
-        });
-    }
-
     render() {
         return (
             <div className="locations">
@@ -50,27 +17,21 @@ class Locations extends Component {
                         className="locations-filter-input"
                         alt="Station Location"
                         debounceTimeout={300}
-                        onChange={({ target }) => this.filterStations(target.value)} />
-
-                    <button className="locations-filter-button">
-                        Filter
-                    </button>
+                        onChange={({ target }) => this.props.updateMap(target.value)} />
                 </div>
 
                 <ul className="locations-wrapper">
                     {
-                        this.state.stations.map(item => (
+                        this.props.stations.map(station => (
                             <li
-                                key={item.location.venueId}
+                                key={station.location.venueId}
                                 tabIndex="0"
                                 className="location"
                                 role="button"
-                                aria-pressed={item.pressed || false}
-                                onClick={() => this.changeStation(item)}
+                                aria-pressed={station.pressed || false}
+                                onClick={() => this.props.changeStation(station)}
                             >
-
-                                {item.title}
-
+                                {station.title}
                             </li>
                         ))
                     }
