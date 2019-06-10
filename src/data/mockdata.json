@@ -1,0 +1,675 @@
+{
+    "meta": {
+        "code": 200,
+        "requestId": "5cfd45fcdb04f52f5fb19f4d"
+    },
+    "response": {
+        "venue": {
+            "id": "4bd17db6b221c9b67993d5d0",
+            "name": "Estação São Joaquim (Metrô)",
+            "contact": {
+                "phone": "+551132917800",
+                "formattedPhone": "+55 11 3291-7800"
+            },
+            "location": {
+                "address": "Av. Liberdade, 1033",
+                "crossStreet": "Linha 1\/Azul",
+                "lat": -23.561900852541275,
+                "lng": -46.63858680783402,
+                "labeledLatLngs": [
+                    {
+                        "label": "display",
+                        "lat": -23.561900852541275,
+                        "lng": -46.63858680783402
+                    }
+                ],
+                "postalCode": "01503-001",
+                "cc": "BR",
+                "city": "São Paulo",
+                "state": "SP",
+                "country": "Brasil",
+                "formattedAddress": [
+                    "Av. Liberdade, 1033 (Linha 1\/Azul)",
+                    "São Paulo, SP",
+                    "01503-001",
+                    "Brasil"
+                ]
+            },
+            "canonicalUrl": "https:\/\/foursquare.com\/v\/esta%C3%A7%C3%A3o-s%C3%A3o-joaquim-metr%C3%B4\/4bd17db6b221c9b67993d5d0",
+            "categories": [
+                {
+                    "id": "4bf58dd8d48988d1fd931735",
+                    "name": "Estação de Metrô",
+                    "pluralName": "Estações de Metrô",
+                    "shortName": "Metrô",
+                    "icon": {
+                        "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/travel\/subway_",
+                        "suffix": ".png"
+                    },
+                    "primary": true
+                }
+            ],
+            "verified": true,
+            "stats": {
+                "tipCount": 40,
+                "usersCount": 0,
+                "checkinsCount": 0,
+                "visitsCount": 0
+            },
+            "url": "http:\/\/www.metro.sp.gov.br",
+            "likes": {
+                "count": 75,
+                "groups": [
+                    {
+                        "type": "others",
+                        "count": 75,
+                        "items": []
+                    }
+                ],
+                "summary": "75 Curtem"
+            },
+            "dislike": false,
+            "ok": false,
+            "venueRatingBlacklisted": true,
+            "beenHere": {
+                "count": 0,
+                "unconfirmedCount": 0,
+                "marked": false,
+                "lastCheckinExpiredAt": 0
+            },
+            "specials": {
+                "count": 0,
+                "items": []
+            },
+            "photos": {
+                "count": 169,
+                "groups": [
+                    {
+                        "type": "checkin",
+                        "name": "Fotos de check-ins de amigos",
+                        "count": 0,
+                        "items": []
+                    },
+                    {
+                        "type": "venue",
+                        "name": "Fotos do lugar",
+                        "count": 169,
+                        "items": [
+                            {
+                                "id": "4fcc9b8ae4b073d5db2a23cd",
+                                "createdAt": 1338809226,
+                                "source": {
+                                    "name": "Foursquare for iOS",
+                                    "url": "https:\/\/foursquare.com\/download\/#\/iphone"
+                                },
+                                "prefix": "https:\/\/fastly.4sqi.net\/img\/general\/",
+                                "suffix": "\/76Go_eUA2suwOaGOxBapGfKQWOMTwijTQhedIN7F9p4.jpg",
+                                "width": 540,
+                                "height": 540,
+                                "user": {
+                                    "id": "8123609",
+                                    "firstName": "Leonardo",
+                                    "lastName": "Pacheco",
+                                    "gender": "male",
+                                    "photo": {
+                                        "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                        "suffix": "\/8123609_6lY7t8b4_uCgnuI5jTnaLuBsNqKl868hMy07O4uwt7Nt-WrKmQlrL4kfhLeuO2_HEOEOYNoOQ.jpg"
+                                    }
+                                },
+                                "visibility": "public"
+                            }
+                        ]
+                    }
+                ],
+                "summary": "0 fotos"
+            },
+            "reasons": {
+                "count": 1,
+                "items": [
+                    {
+                        "summary": "Muitas pessoas curtem este lugar",
+                        "type": "general",
+                        "reasonName": "rawLikesReason"
+                    }
+                ]
+            },
+            "page": {
+                "pageInfo": {
+                    "links": {
+                        "count": 1,
+                        "items": [
+                            {
+                                "url": "http:\/\/www.metro.sp.gov.br"
+                            }
+                        ]
+                    }
+                },
+                "user": {
+                    "id": "47727221",
+                    "firstName": "Metrô-SP",
+                    "gender": "none",
+                    "photo": {
+                        "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                        "suffix": "\/ZVZFTEO0PKBFKDJT.jpg"
+                    },
+                    "type": "chain",
+                    "tips": {
+                        "count": 0
+                    },
+                    "lists": {
+                        "groups": [
+                            {
+                                "type": "created",
+                                "count": 2,
+                                "items": []
+                            }
+                        ]
+                    },
+                    "homeCity": "São Paulo",
+                    "bio": "",
+                    "contact": {}
+                }
+            },
+            "hereNow": {
+                "count": 1,
+                "summary": "Uma outra pessoa está aqui",
+                "groups": [
+                    {
+                        "type": "others",
+                        "name": "Outras pessoas aqui",
+                        "count": 1,
+                        "items": []
+                    }
+                ]
+            },
+            "createdAt": 1272020406,
+            "tips": {
+                "count": 40,
+                "groups": [
+                    {
+                        "type": "others",
+                        "name": "Todas as dicas",
+                        "count": 40,
+                        "items": [
+                            {
+                                "id": "4f038a1e9adf4efb131600f5",
+                                "createdAt": 1325632030,
+                                "text": "Tem um motel na rua pirapitingui, chamado lido... (...) ... Alem de de ser muito limpo, tem refeicoes de cortesias que sao maravilhosas. E a variacao de preco da suite com hidro e sem hidro, eh de 10$",
+                                "type": "user",
+                                "canonicalUrl": "https:\/\/foursquare.com\/item\/4f038a1e9adf4efb131600f5",
+                                "likes": {
+                                    "count": 19,
+                                    "groups": [
+                                        {
+                                            "type": "others",
+                                            "count": 19,
+                                            "items": []
+                                        }
+                                    ],
+                                    "summary": "19 curtir"
+                                },
+                                "logView": true,
+                                "agreeCount": 22,
+                                "disagreeCount": 0,
+                                "todo": {
+                                    "count": 1
+                                },
+                                "user": {
+                                    "id": "14788592",
+                                    "firstName": "Lívia",
+                                    "lastName": "Baldinotti",
+                                    "gender": "female",
+                                    "photo": {
+                                        "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                        "suffix": "\/2IHSM153Q5QNAU3H.jpg"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "shortUrl": "http:\/\/4sq.com\/9n7JJa",
+            "timeZone": "America\/Sao_Paulo",
+            "listed": {
+                "count": 60,
+                "groups": [
+                    {
+                        "type": "others",
+                        "name": "Listas de outras pessoas",
+                        "count": 60,
+                        "items": [
+                            {
+                                "id": "4eff56f62c5b66f33bcb4b7d",
+                                "name": "METRO & TRENS | SÃO PAULO - BRAZIL",
+                                "description": "",
+                                "type": "others",
+                                "user": {
+                                    "id": "18467553",
+                                    "firstName": "KINGUINNESS DJ",
+                                    "gender": "none",
+                                    "photo": {
+                                        "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                        "suffix": "\/1AHNRBF23WQ3AF54.png"
+                                    },
+                                    "type": "page"
+                                },
+                                "editable": false,
+                                "public": true,
+                                "collaborative": false,
+                                "url": "\/p\/kinguinness-dj\/18467553\/list\/metro--trens--s%C3%A3o-paulo--brazil",
+                                "canonicalUrl": "https:\/\/foursquare.com\/p\/kinguinness-dj\/18467553\/list\/metro--trens--s%C3%A3o-paulo--brazil",
+                                "createdAt": 1325356790,
+                                "updatedAt": 1325362061,
+                                "photo": {
+                                    "id": "4ec8492b6da1d1092f9ab920",
+                                    "createdAt": 1321748779,
+                                    "prefix": "https:\/\/fastly.4sqi.net\/img\/general\/",
+                                    "suffix": "\/XXZZUQIRKBPODY0QL1ISB5MNWFJL42MWXMXZZNVTJCZGBXLK.jpg",
+                                    "width": 720,
+                                    "height": 540,
+                                    "user": {
+                                        "id": "13977900",
+                                        "firstName": "Boni",
+                                        "lastName": "Palmeiras",
+                                        "gender": "male",
+                                        "photo": {
+                                            "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                            "suffix": "\/LIBX5YOPNX3YLIFA.jpg"
+                                        }
+                                    },
+                                    "visibility": "public"
+                                },
+                                "logView": true,
+                                "followers": {
+                                    "count": 18
+                                },
+                                "listItems": {
+                                    "count": 40,
+                                    "items": [
+                                        {
+                                            "id": "v4bd17db6b221c9b67993d5d0",
+                                            "createdAt": 1325360651,
+                                            "photo": {
+                                                "id": "4ea1db69b8f7e4911e5ef8ac",
+                                                "createdAt": 1319230313,
+                                                "prefix": "https:\/\/fastly.4sqi.net\/img\/general\/",
+                                                "suffix": "\/RK5IUL2ZDD4KNLGICPDXH0NQJKY0JFGIR3ELSSNEXKYNB0WE.jpg",
+                                                "width": 460,
+                                                "height": 345,
+                                                "user": {
+                                                    "id": "14871768",
+                                                    "firstName": "Juan",
+                                                    "lastName": "Fazolo",
+                                                    "gender": "male",
+                                                    "photo": {
+                                                        "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                                        "suffix": "\/LFVX32PZWZBD2XXW.jpg"
+                                                    }
+                                                },
+                                                "visibility": "public"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "id": "4eb6d03b02d5f33e93256839",
+                                "name": "Transporte",
+                                "description": "",
+                                "type": "others",
+                                "user": {
+                                    "id": "16200245",
+                                    "firstName": "Silvana",
+                                    "lastName": "Marques",
+                                    "gender": "female",
+                                    "photo": {
+                                        "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                        "suffix": "\/GFPESZ3RLAENZZS1.jpg"
+                                    }
+                                },
+                                "editable": false,
+                                "public": true,
+                                "collaborative": false,
+                                "url": "\/silmarq\/list\/transporte-1",
+                                "canonicalUrl": "https:\/\/foursquare.com\/silmarq\/list\/transporte-1",
+                                "createdAt": 1320603707,
+                                "updatedAt": 1554319753,
+                                "photo": {
+                                    "id": "4ea00a7e9a5229904c95263d",
+                                    "createdAt": 1319111294,
+                                    "prefix": "https:\/\/fastly.4sqi.net\/img\/general\/",
+                                    "suffix": "\/2JRN13OZIUSFWWPIRG2LGNVAQFPLD1BEUSLZ1DNE5OEXO0ZC.jpg",
+                                    "width": 720,
+                                    "height": 348,
+                                    "user": {
+                                        "id": "14153356",
+                                        "firstName": "Bruna",
+                                        "lastName": "Bento",
+                                        "gender": "female",
+                                        "photo": {
+                                            "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                            "suffix": "\/14153356-HYU2A5I0KWIMNMDU.jpg"
+                                        }
+                                    },
+                                    "visibility": "public"
+                                },
+                                "followers": {
+                                    "count": 58
+                                },
+                                "listItems": {
+                                    "count": 68,
+                                    "items": [
+                                        {
+                                            "id": "t4d7923aa132d8eec754e14be",
+                                            "createdAt": 1320607503
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "id": "4e4c38507d8bdc6f334f1102",
+                                "name": "Estações de Metrô \/ Trem de São Paulo",
+                                "description": "Lista das estações do Metrô e de Trem (CPTM) de São Paulo (em atualização).",
+                                "type": "others",
+                                "user": {
+                                    "id": "2656631",
+                                    "firstName": "Marcos",
+                                    "lastName": "F",
+                                    "gender": "male",
+                                    "photo": {
+                                        "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                        "suffix": "\/JSKK2ETBTJDXJEYA.jpg"
+                                    }
+                                },
+                                "editable": false,
+                                "public": true,
+                                "collaborative": false,
+                                "url": "\/marcos_drum\/list\/esta%C3%A7%C3%B5es-de-metr%C3%B4--trem-de-s%C3%A3o-paulo",
+                                "canonicalUrl": "https:\/\/foursquare.com\/marcos_drum\/list\/esta%C3%A7%C3%B5es-de-metr%C3%B4--trem-de-s%C3%A3o-paulo",
+                                "createdAt": 1313618000,
+                                "updatedAt": 1554319753,
+                                "photo": {
+                                    "id": "4d9da50dee71a340591412f6",
+                                    "createdAt": 1302177037,
+                                    "prefix": "https:\/\/fastly.4sqi.net\/img\/general\/",
+                                    "suffix": "\/ZBN5B4WH51UO0AZXVSMGNSHW2GXJQOB0VTZBO1JXYQ1JSEOU.jpg",
+                                    "width": 540,
+                                    "height": 540,
+                                    "user": {
+                                        "id": "8123609",
+                                        "firstName": "Leonardo",
+                                        "lastName": "Pacheco",
+                                        "gender": "male",
+                                        "photo": {
+                                            "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                            "suffix": "\/8123609_6lY7t8b4_uCgnuI5jTnaLuBsNqKl868hMy07O4uwt7Nt-WrKmQlrL4kfhLeuO2_HEOEOYNoOQ.jpg"
+                                        }
+                                    },
+                                    "visibility": "public"
+                                },
+                                "followers": {
+                                    "count": 1558
+                                },
+                                "listItems": {
+                                    "count": 157,
+                                    "items": [
+                                        {
+                                            "id": "t4d7923aa132d8eec754e14be",
+                                            "createdAt": 1313618000,
+                                            "photo": {
+                                                "id": "4ea1db69b8f7e4911e5ef8ac",
+                                                "createdAt": 1319230313,
+                                                "prefix": "https:\/\/fastly.4sqi.net\/img\/general\/",
+                                                "suffix": "\/RK5IUL2ZDD4KNLGICPDXH0NQJKY0JFGIR3ELSSNEXKYNB0WE.jpg",
+                                                "width": 460,
+                                                "height": 345,
+                                                "user": {
+                                                    "id": "14871768",
+                                                    "firstName": "Juan",
+                                                    "lastName": "Fazolo",
+                                                    "gender": "male",
+                                                    "photo": {
+                                                        "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                                        "suffix": "\/LFVX32PZWZBD2XXW.jpg"
+                                                    }
+                                                },
+                                                "visibility": "public"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "id": "510ed79fe4b0ca91f9b43cb8",
+                                "name": "Trem e Metrô",
+                                "description": "Linhas de trem e metro de São Paulo",
+                                "type": "others",
+                                "user": {
+                                    "id": "2673706",
+                                    "firstName": "Junior",
+                                    "lastName": "Capela",
+                                    "gender": "male",
+                                    "photo": {
+                                        "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                        "suffix": "\/VQRG141IMUL2C3ML.jpg"
+                                    }
+                                },
+                                "editable": false,
+                                "public": true,
+                                "collaborative": false,
+                                "url": "\/jrcapela\/list\/trem-e-metr%C3%B4",
+                                "canonicalUrl": "https:\/\/foursquare.com\/jrcapela\/list\/trem-e-metr%C3%B4",
+                                "createdAt": 1359927199,
+                                "updatedAt": 1449762771,
+                                "photo": {
+                                    "id": "510f46def136847dddf9ea59",
+                                    "createdAt": 1359955678,
+                                    "prefix": "https:\/\/fastly.4sqi.net\/img\/general\/",
+                                    "suffix": "\/2673706_VvsX6e7ZFaF-2wDaohZOjaY_nUR1gQOeRJt3C7dURR4.jpg",
+                                    "width": 200,
+                                    "height": 200,
+                                    "user": {
+                                        "id": "2673706",
+                                        "firstName": "Junior",
+                                        "lastName": "Capela",
+                                        "gender": "male",
+                                        "photo": {
+                                            "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                            "suffix": "\/VQRG141IMUL2C3ML.jpg"
+                                        }
+                                    },
+                                    "visibility": "public"
+                                },
+                                "followers": {
+                                    "count": 14
+                                },
+                                "listItems": {
+                                    "count": 151,
+                                    "items": [
+                                        {
+                                            "id": "v4bd17db6b221c9b67993d5d0",
+                                            "createdAt": 1359936522,
+                                            "photo": {
+                                                "id": "510efc24b0ed3d95846cea57",
+                                                "createdAt": 1359936548,
+                                                "prefix": "https:\/\/fastly.4sqi.net\/img\/general\/",
+                                                "suffix": "\/2673706_slgoSzt2_sRDydSDd9MheeZpHW8o35ak6luzYZci7vE.jpg",
+                                                "width": 327,
+                                                "height": 202,
+                                                "user": {
+                                                    "id": "2673706",
+                                                    "firstName": "Junior",
+                                                    "lastName": "Capela",
+                                                    "gender": "male",
+                                                    "photo": {
+                                                        "prefix": "https:\/\/fastly.4sqi.net\/img\/user\/",
+                                                        "suffix": "\/VQRG141IMUL2C3ML.jpg"
+                                                    }
+                                                },
+                                                "visibility": "public"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "hours": {
+                "status": "Aberto até 0:26",
+                "richStatus": {
+                    "entities": [],
+                    "text": "Aberto até 0:26"
+                },
+                "isOpen": true,
+                "isLocalHoliday": false,
+                "dayData": [],
+                "timeframes": [
+                    {
+                        "days": "Seg\u2013Sex, Dom",
+                        "includesToday": true,
+                        "open": [
+                            {
+                                "renderedTime": "4:40\u20130:26"
+                            }
+                        ],
+                        "segments": []
+                    },
+                    {
+                        "days": "Sáb",
+                        "open": [
+                            {
+                                "renderedTime": "4:40\u20131:00"
+                            }
+                        ],
+                        "segments": []
+                    }
+                ]
+            },
+            "popular": {
+                "isOpen": false,
+                "isLocalHoliday": false,
+                "timeframes": [
+                    {
+                        "days": "Hoje",
+                        "includesToday": true,
+                        "open": [
+                            {
+                                "renderedTime": "Nenhum"
+                            }
+                        ],
+                        "segments": []
+                    },
+                    {
+                        "days": "Seg\u2013Ter",
+                        "open": [
+                            {
+                                "renderedTime": "7:00\u2013Meio-dia"
+                            },
+                            {
+                                "renderedTime": "17:00\u201323:00"
+                            }
+                        ],
+                        "segments": []
+                    },
+                    {
+                        "days": "Qua",
+                        "open": [
+                            {
+                                "renderedTime": "7:00\u201314:00"
+                            },
+                            {
+                                "renderedTime": "17:00\u201323:00"
+                            }
+                        ],
+                        "segments": []
+                    },
+                    {
+                        "days": "Qui",
+                        "open": [
+                            {
+                                "renderedTime": "6:00\u201310:00"
+                            },
+                            {
+                                "renderedTime": "17:00\u201323:00"
+                            }
+                        ],
+                        "segments": []
+                    },
+                    {
+                        "days": "Sex",
+                        "open": [
+                            {
+                                "renderedTime": "7:00\u2013Meio-dia"
+                            },
+                            {
+                                "renderedTime": "17:00\u201323:00"
+                            }
+                        ],
+                        "segments": []
+                    },
+                    {
+                        "days": "Sáb",
+                        "open": [
+                            {
+                                "renderedTime": "14:00\u201315:00"
+                            }
+                        ],
+                        "segments": []
+                    }
+                ]
+            },
+            "pageUpdates": {
+                "count": 0,
+                "items": []
+            },
+            "inbox": {
+                "count": 0,
+                "items": []
+            },
+            "venueChains": [],
+            "attributes": {
+                "groups": [
+                    {
+                        "type": "wifi",
+                        "name": "WiFi",
+                        "summary": "WiFi",
+                        "count": 1,
+                        "items": [
+                            {
+                                "displayName": "WiFi",
+                                "displayValue": "Sim"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bestPhoto": {
+                "id": "4fcc9b8ae4b073d5db2a23cd",
+                "createdAt": 1338809226,
+                "source": {
+                    "name": "Foursquare for iOS",
+                    "url": "https:\/\/foursquare.com\/download\/#\/iphone"
+                },
+                "prefix": "https:\/\/fastly.4sqi.net\/img\/general\/",
+                "suffix": "\/76Go_eUA2suwOaGOxBapGfKQWOMTwijTQhedIN7F9p4.jpg",
+                "width": 540,
+                "height": 540,
+                "visibility": "public"
+            },
+            "colors": {
+                "highlightColor": {
+                    "photoId": "4fcc9b8ae4b073d5db2a23cd",
+                    "value": -15204320
+                },
+                "highlightTextColor": {
+                    "photoId": "4fcc9b8ae4b073d5db2a23cd",
+                    "value": -1
+                },
+                "algoVersion": 3
+            }
+        }
+    }
+}
