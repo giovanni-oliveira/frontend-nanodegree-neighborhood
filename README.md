@@ -15,13 +15,13 @@ Esta aplicação lista algumas estações do Metrô/CPTM de São Paulo, permitin
 
 
 Para acessar a versão local:
-3. Inicie o projeto com `npm start`
-4. Acesse `http://localhost:3000`.
+1. Inicie o projeto com `npm start`
+2. Acesse `http://localhost:3000`.
 
 Para acessar a versão de produção:
-3. Gere os arquivos para produção `npm run build`
-4. Inicie o servidor com `serve -s build`
-5. Acesse `http://localhost:5000`.
+1. Gere os arquivos para produção `npm run build`
+2. Inicie o servidor com `serve -s build`
+3. Acesse `http://localhost:5000`.
 
 
 ## Importante
@@ -32,6 +32,6 @@ A lista de estações é limitada, todas estão no arquivo [stations.json](/src/
 Esse projeto foi criado com [Create React App](https://github.com/facebookincubator/create-react-app).
 
 
-## Estações
+## Estações e ícones
 A lista de estações originalmente foi obtida através do seguinte arquivo [stations.json](https://gist.github.com/rafaelrinaldi/6a82dd1eceed6dfc7deb), de forma que foi alterada e apenas algumas estações foram selecionadas para serem listadas neste projeto.
 O ícone do menu e do ponteiro do mapa foi obtido através de Icons made by [Smashicons](https://www.flaticon.com/authors/smashicons) do site [www.flaticon.com](https://www.flaticon.com/), licensiado por is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
