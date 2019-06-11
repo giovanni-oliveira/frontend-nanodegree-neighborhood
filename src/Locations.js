@@ -24,7 +24,7 @@ class Locations extends Component {
                         this.props.stations.map(station => (
                             <li
                                 key={station.location.venueId}
-                                tabIndex="0"
+                                tabIndex={this.props.activeTabindex ? 0 : -1}
                                 className="location"
                                 role="button"
                                 aria-pressed={station.pressed || false}

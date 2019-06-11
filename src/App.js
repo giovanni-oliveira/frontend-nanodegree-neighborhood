@@ -13,12 +13,12 @@ class NeighborhoodApp extends Component {
          * Dados dinâmicos do componente
          * @type {Object}
          * @property {Object[]} stations Lista de estações disponíveis
-         * @property {String} stateMenu Estado do menu, sendo: `menu-closed` ou `menu-open`
+         * @property {Boolean} isOpenMenu Estado do menu, sendo: false == `menu-closed` ou true == `menu-opened`
          * @property {Object} selectedStation Estação selecionada
          */
         this.state = {
             stations: [].concat(stations),
-            stateMenu: 'menu-closed',
+            isOpenMenu: false,
             selectedStation: {}
         };
 
@@ -105,7 +105,7 @@ class NeighborhoodApp extends Component {
      * @memberof NeighborhoodApp
      * @method changeStation
      * @param {Object} stationActive 
-     * @param {String||Null} newStateMenu
+     * @param {Boolean} newStateMenu
      */
     async changeStation(stationActive, newStateMenu) {
         const stationInfo = await this.getStation(stationActive.location.venueId);
@@ -132,7 +132,11 @@ class NeighborhoodApp extends Component {
      */
     toggleMenu() {
         this.setState((prev) => {
-            prev.stateMenu = prev.stateMenu === 'menu-opened' ? 'menu-closed' : 'menu-opened'
+            prev.isOpenMenu = !prev.isOpenMenu;
+
+            if(prev.isOpenMenu) {
+                document.querySelector('.locations-filter-input').focus();
+            }
 
             return prev;
         });
@@ -140,18 +144,7 @@ class NeighborhoodApp extends Component {
 
     render() {
         return (
-            <main className={'app ' + this.state.stateMenu} >
-                <Locations
-                    changeStation={station => {
-                        // Após ativação de um item o menu será fechado para aparelhos com largura menor que 768
-                        const stateMenu = 768 > window.screen.width ? 'menu-closed' : null;
-
-                        this.changeStation(station, stateMenu);
-                    }}
-                    updateMap={query => this.filterStations(query)}
-                    stations={this.state.stations}
-                    title={'Estações de São Paulo'} />
-
+            <main className={this.state.isOpenMenu ? 'app menu-opened' : 'app menu-closed'} >
                 <div className="app-wrapper">
                     <Header clickMenu={() => this.toggleMenu()} />
 
@@ -163,6 +156,20 @@ class NeighborhoodApp extends Component {
                             selectedStation={this.state.selectedStation}
                             stations={this.state.stations} />
                     </div>
+                </div>
+
+                <div className="menu-locations" aria-expanded={this.state.isOpenMenu}  arial-label="Lista com as estações de São Paulo">
+                    <Locations
+                        activeTabindex={this.state.isOpenMenu}
+                        changeStation={station => {
+                            // Após ativação de um item o menu será fechado para aparelhos com largura menor que 768
+                            const stateMenu = 768 < window.screen.width;
+
+                            this.changeStation(station, stateMenu);
+                        }}
+                        updateMap={query => this.filterStations(query)}
+                        stations={this.state.stations}
+                        title={'Estações de São Paulo'} />
                 </div>
             </main>
         );
