@@ -6,7 +6,7 @@ Esta aplicação lista algumas estações do Metrô/CPTM de São Paulo, permitin
 - [Instruções](#instruções)
 - [Importante](#importante)
 - [React App](#react-app)
-- [Estações](#estações)
+- [Estações](#estações-e-ícones)
 
 
 ## Instruções
