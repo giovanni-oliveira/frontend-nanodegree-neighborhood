@@ -105,11 +105,12 @@ class NeighborhoodApp extends Component {
      * @memberof NeighborhoodApp
      * @method changeStation
      * @param {Object} stationActive 
+     * @param {String||Null} newStateMenu
      */
-    async changeStation(stationActive) {
+    async changeStation(stationActive, newStateMenu) {
         const stationInfo = await this.getStation(stationActive.location.venueId);
 
-        this.setState(({ stations }) => {
+        this.setState(({ stations, stateMenu }) => {
             const setPressed = station => {
                 station.pressed = stationActive === station;
 
@@ -118,7 +119,8 @@ class NeighborhoodApp extends Component {
 
             return {
                 stations: stations.map(setPressed),
-                selectedStation: stationInfo
+                selectedStation: stationInfo,
+                stateMenu: newStateMenu || stateMenu
             };
         });
     }
@@ -140,7 +142,12 @@ class NeighborhoodApp extends Component {
         return (
             <main className={'app ' + this.state.stateMenu} >
                 <Locations
-                    changeStation={station => this.changeStation(station)}
+                    changeStation={station => {
+                        // Após ativação de um item o menu será fechado para aparelhos com largura menor que 768
+                        const stateMenu = 768 > window.screen.width ? 'menu-closed' : null;
+
+                        this.changeStation(station, stateMenu);
+                    }}
                     updateMap={query => this.filterStations(query)}
                     stations={this.state.stations}
                     title={'Estações de São Paulo'} />
