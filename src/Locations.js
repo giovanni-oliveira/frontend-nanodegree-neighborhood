@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { DebounceInput } from 'react-debounce-input';
 import "./Locations.css";
 
-
 class Locations extends Component {
     render() {
         return (
@@ -17,7 +16,7 @@ class Locations extends Component {
                         className="locations-filter-input"
                         alt="Station Location"
                         debounceTimeout={300}
-                        onChange={({ target }) => this.props.updateMap(target.value)} />
+                        onChange={({ target }) => this.props.updateMap(target.value.trim())} />
                 </div>
 
                 <ul className="locations-wrapper">
@@ -30,6 +29,7 @@ class Locations extends Component {
                                 role="button"
                                 aria-pressed={station.pressed || false}
                                 onClick={() => this.props.changeStation(station)}
+                                onKeyUp={({keyCode})=> keyCode === 32 && this.props.changeStation(station)}
                             >
                                 {station.title}
                             </li>

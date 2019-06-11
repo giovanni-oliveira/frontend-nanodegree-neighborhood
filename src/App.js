@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Header from "./Header";
 import Locations from "./Locations";
-import GoogleApiWrapper from "./MapStation";
+import MapStation from "./MapStation";
 import stations from "./data/stations.json";
 
 class NeighborhoodApp extends Component {
@@ -14,15 +14,11 @@ class NeighborhoodApp extends Component {
          * @type {Object}
          * @property {Object[]} stations Lista de estações disponíveis
          * @property {String} stateMenu Estado do menu, sendo: `menu-closed` ou `menu-open`
-         * @property {Object} activeMarker Referência do `Marker` ativado
-         * @property {Boolean} showingInfoWindow Mostrar informação sobre o local
          * @property {Object} selectedStation Estação selecionada
          */
         this.state = {
-            stations: [],
+            stations: [].concat(stations),
             stateMenu: 'menu-closed',
-            activeMarker: {},
-            showingInfoWindow: false,
             selectedStation: {}
         };
 
@@ -31,18 +27,15 @@ class NeighborhoodApp extends Component {
          * @type {Object}
          */
         this.cachedInfo = {};
-    }
 
-    componentDidMount() {
-        const addRef = station => {
-            station.ref = React.createRef();
-
-            return station;
-        };
-
-        this.setState({
-            stations: stations.map(addRef)
-        });
+        /**
+         * Configuração que será utilizada para carregar o google maps
+         * @type {Object}
+         */
+        this.googleMapsConfig = {
+            center: { lat: -23.5555348, lng: -46.6359564 },
+            zoom: 13
+        }
     }
 
     /**
@@ -78,57 +71,12 @@ class NeighborhoodApp extends Component {
      * @memberof NeighborhoodApp
      * @method getStation
      * @param {String} venueId
+     * @return {Object}
      */
     async getStation(venueId) {
         this.cachedInfo[venueId] = this.cachedInfo[venueId] || await this.getInfoLocation(venueId) || await this.getMockData();
 
         return this.cachedInfo[venueId];
-    }
-
-    /**
-     * Exibe as informações da estação selecionada
-     * @memberof NeighborhoodApp
-     * @method onMarkerClick
-     * @param {Object} marker 
-     * @param {String} venueId 
-     */
-    async onMarkerClick(marker, venueId) {
-        const station = await this.getStation(venueId);
-
-        this.setState({
-            selectedStation: station,
-            activeMarker: marker,
-            showingInfoWindow: true
-        });
-    }
-
-    /**
-     * Desativa o `InfoWindow`
-     * @memberof NeighborhoodApp
-     * @method disableInfoWindow
-     */
-    disableInfoWindow() {
-        if (!this.state.showingInfoWindow) return;
-
-        this.setState({
-            showingInfoWindow: false,
-            activeMarker: null
-        });
-    };
-
-    /**
-     * Ativa o `InfoWindow` com os dados da estação selecionada
-     * @memberof NeighborhoodApp
-     * @method showInfoWindow
-     */
-    async showInfoWindow(selectedStation) {
-        const station = await this.getStation(selectedStation.location.venueId);
-
-        this.setState({
-            selectedStation: station,
-            activeMarker: selectedStation.ref.current.marker,
-            showingInfoWindow: true
-        })
     }
 
     /**
@@ -138,13 +86,18 @@ class NeighborhoodApp extends Component {
      * @param {String} query 
      */
     filterStations(query) {
-        const stationsFiltered = stations.filter(({ title }) => title.includes(query));
+        const stationsFiltered = stations
+            .map(station => {
+                station.pressed = false;
+
+                return station;
+            })
+            .filter(({ title }) => title.includes(query));
+
 
         this.setState({
             stations: stationsFiltered
         });
-
-        this.disableInfoWindow();
     }
 
     /**
@@ -154,18 +107,20 @@ class NeighborhoodApp extends Component {
      * @param {Object} stationActive 
      */
     async changeStation(stationActive) {
-        const updateAttrPressed = ({ stations }) => {
+        const stationInfo = await this.getStation(stationActive.location.venueId);
+
+        this.setState(({ stations }) => {
             const setPressed = station => {
                 station.pressed = stationActive === station;
 
                 return station;
             };
 
-            return { stations: stations.map(setPressed) };
-        };
-
-        await this.showInfoWindow(stationActive);
-        this.setState(updateAttrPressed);
+            return {
+                stations: stations.map(setPressed),
+                selectedStation: stationInfo
+            };
+        });
     }
 
     /**
@@ -174,7 +129,11 @@ class NeighborhoodApp extends Component {
      * @method toggleMenu
      */
     toggleMenu() {
-        this.setState(({ stateMenu }) => ({ stateMenu: stateMenu === 'menu-opened' ? 'menu-closed' : 'menu-opened' }));
+        this.setState((prev) => {
+            prev.stateMenu = prev.stateMenu === 'menu-opened' ? 'menu-closed' : 'menu-opened'
+
+            return prev;
+        });
     }
 
     render() {
@@ -189,14 +148,14 @@ class NeighborhoodApp extends Component {
                 <div className="app-wrapper">
                     <Header clickMenu={() => this.toggleMenu()} />
 
-                    <GoogleApiWrapper
-                        disableInfoWindow={() => this.disableInfoWindow()}
-                        onMarkerClick={(marker, venueId) => this.onMarkerClick(marker, venueId)}
-                        selectedStation={this.state.selectedStation}
-                        updateMarkerActive={state => this.setState(state)}
-                        activeMarker={this.state.activeMarker}
-                        isVisible={this.state.showingInfoWindow}
-                        stations={this.state.stations} />
+                    <div className="map-container" role="application" aria-label="Google Maps">
+                        <MapStation
+                            mapsConfig={this.googleMapsConfig}
+                            apiKey={'AIzaSyATs9UCWYFn2Cx-P0mPjmlpuFmaJI33Nz4'}
+                            onMarkerClick={station => this.changeStation(station)}
+                            selectedStation={this.state.selectedStation}
+                            stations={this.state.stations} />
+                    </div>
                 </div>
             </main>
         );

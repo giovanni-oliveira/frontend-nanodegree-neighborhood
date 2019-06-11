@@ -1,0 +1,15 @@
+.info-likes {
+    color: #0282a5;
+    text-align: center;
+}
+
+.info-more {
+    font-style: normal;
+    font-weight: bold;
+    color: #ea4335;
+}
+
+.info-address,
+.info-name {
+    padding-bottom: 10px;
+}

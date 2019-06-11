@@ -36,7 +36,7 @@
     cursor: pointer;
     transition: background .2s ease-in-out;
 }
-
+.locations [aria-pressed="true"],
 .locations .locations-wrapper .location:hover {
     background: rgba(8, 0, 0, 0.08);
 }
