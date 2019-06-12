@@ -194,6 +194,7 @@ function loadScriptMap(key = '') {
     script.src = `//maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`;
     script.async = true;
     script.defer = true;
+    script.onerror = () => alert('O Google maps não foi carregado corretamente.')
 
     position.parentNode.insertBefore(script, position);
 }

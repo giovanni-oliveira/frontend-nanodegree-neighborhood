@@ -46,7 +46,7 @@ class NeighborhoodApp extends Component {
      * @return {Object}
      */
     async getInfoLocation(id) {
-        const urlRequest = `//api.foursquare.com/v2/venues/${id}?client_id=M1JTMND3WDZIPHEQAELXZ2CNJR01UQZLQ5NZZLCP2SSOYA4H&client_secret=WBXIT2RVVMRC3HXGQX4NEEQQBO5UC5WL5E5FXT313A0ZQRI0&v=20180323&limit=1`;
+        const urlRequest = `https://api.foursquare.com/v2/venues/${id}?client_id=M1JTMND3WDZIPHEQAELXZ2CNJR01UQZLQ5NZZLCP2SSOYA4H&client_secret=WBXIT2RVVMRC3HXGQX4NEEQQBO5UC5WL5E5FXT313A0ZQRI0&v=20180323&limit=1`;
 
         return await fetch(urlRequest)
             .then(response => response.json())
@@ -62,6 +62,7 @@ class NeighborhoodApp extends Component {
      */
     async getMockData() {
         const { default: { response: { venue } } } = await import("./data/mockdata.json");
+        alert('A requisição na api do foursquare falhou, os seguintes dados são fixos para testes.');
 
         return venue;
     }
