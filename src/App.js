@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Header from "./Header";
-import Locations from "./Locations";
+import Stations from "./Stations";
 import MapStation from "./MapStation";
 import stations from "./data/stations.json";
 import * as Constants from "./constants";
@@ -96,7 +96,7 @@ class NeighborhoodApp extends Component {
      * @param {Object} stationActive 
      * @param {Boolean} isOpenMenu
      */
-    async changeStation(stationActive, isOpenMenu) {
+    async changeStation(stationActive, isOpenMenu = true) {
         const stationInfo = await this.getStation(stationActive.location.venueId);
 
         this.setState(({ stations }) => {
@@ -124,7 +124,7 @@ class NeighborhoodApp extends Component {
             prev.isOpenMenu = !prev.isOpenMenu;
 
             if(prev.isOpenMenu) {
-                document.querySelector('.locations-filter-input').focus();
+                document.querySelector('.stations-filter-input').focus();
             }
 
             return prev;
@@ -147,8 +147,8 @@ class NeighborhoodApp extends Component {
                     </div>
                 </div>
 
-                <div className="menu-locations" aria-expanded={this.state.isOpenMenu}  arial-label="Lista com as estações de São Paulo">
-                    <Locations
+                <div className="menu-stations" aria-expanded={this.state.isOpenMenu}  arial-label="Lista com as estações de São Paulo">
+                    <Stations
                         activeTabindex={this.state.isOpenMenu}
                         changeStation={station => {
                             // Após ativação de um item o menu será fechado para aparelhos com largura menor que 768
