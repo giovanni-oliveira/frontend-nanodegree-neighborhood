@@ -4,6 +4,7 @@ import Header from "./Header";
 import Locations from "./Locations";
 import MapStation from "./MapStation";
 import stations from "./data/stations.json";
+import * as Constants from "./constants";
 
 class NeighborhoodApp extends Component {
     constructor() {
@@ -46,7 +47,7 @@ class NeighborhoodApp extends Component {
      * @return {Object}
      */
     async getInfoLocation(id) {
-        const urlRequest = `https://api.foursquare.com/v2/venues/${id}?client_id=M1JTMND3WDZIPHEQAELXZ2CNJR01UQZLQ5NZZLCP2SSOYA4H&client_secret=WBXIT2RVVMRC3HXGQX4NEEQQBO5UC5WL5E5FXT313A0ZQRI0&v=20180323&limit=1`;
+        const urlRequest = `${Constants.foursquare.baseURL}venues/${id}?client_id=${Constants.foursquare.clientID}&client_secret=${Constants.foursquare.clientSecret}&v=20180323&limit=1`;
 
         return await fetch(urlRequest)
             .then(response => response.json())
@@ -93,12 +94,12 @@ class NeighborhoodApp extends Component {
      * @memberof NeighborhoodApp
      * @method changeStation
      * @param {Object} stationActive 
-     * @param {Boolean} newStateMenu
+     * @param {Boolean} isOpenMenu
      */
-    async changeStation(stationActive, newStateMenu) {
+    async changeStation(stationActive, isOpenMenu) {
         const stationInfo = await this.getStation(stationActive.location.venueId);
 
-        this.setState(({ stations, stateMenu }) => {
+        this.setState(({ stations }) => {
             const setPressed = station => {
                 station.pressed = stationActive === station;
 
@@ -108,7 +109,7 @@ class NeighborhoodApp extends Component {
             return {
                 stations: stations.map(setPressed),
                 selectedStation: stationInfo,
-                stateMenu: newStateMenu || stateMenu
+                isOpenMenu
             };
         });
     }
@@ -139,7 +140,7 @@ class NeighborhoodApp extends Component {
                     <div className="map-container" role="application" aria-label="Google Maps">
                         <MapStation
                             mapsConfig={this.googleMapsConfig}
-                            apiKey={'AIzaSyATs9UCWYFn2Cx-P0mPjmlpuFmaJI33Nz4'}
+                            apiKey={Constants.apiKeyGoogleMaps}
                             onMarkerClick={station => this.changeStation(station)}
                             selectedStation={this.state.selectedStation}
                             stations={this.state.stations} />
@@ -151,9 +152,9 @@ class NeighborhoodApp extends Component {
                         activeTabindex={this.state.isOpenMenu}
                         changeStation={station => {
                             // Após ativação de um item o menu será fechado para aparelhos com largura menor que 768
-                            const stateMenu = 768 < window.screen.width;
-
-                            this.changeStation(station, stateMenu);
+                            const isOpenMenu = 768 < window.screen.width;
+                            
+                            this.changeStation(station, isOpenMenu);
                         }}
                         updateMap={query => this.filterStations(query)}
                         stations={this.state.stations}
