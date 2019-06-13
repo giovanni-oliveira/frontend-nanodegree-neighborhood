@@ -55,19 +55,6 @@ class NeighborhoodApp extends Component {
     }
 
     /**
-     * As requisições da API `foursquare` são limitadas, então, para testes é mockado dados de uma estação.
-     * @memberof NeighborhoodApp
-     * @method getMockData
-     * @return {Object}
-     */
-    async getMockData() {
-        const { default: { response: { venue } } } = await import("./data/mockdata.json");
-        alert('A requisição na api do foursquare falhou, os seguintes dados são fixos para testes.');
-
-        return venue;
-    }
-
-    /**
      * Busca as informações de uma estação e as guarda em `this.cachedInfo` para futuras requisições
      * @memberof NeighborhoodApp
      * @method getStation
@@ -75,7 +62,7 @@ class NeighborhoodApp extends Component {
      * @return {Object}
      */
     async getStation(venueId) {
-        this.cachedInfo[venueId] = this.cachedInfo[venueId] || await this.getInfoLocation(venueId) || await this.getMockData();
+        this.cachedInfo[venueId] = this.cachedInfo[venueId] || await this.getInfoLocation(venueId);
 
         return this.cachedInfo[venueId];
     }
