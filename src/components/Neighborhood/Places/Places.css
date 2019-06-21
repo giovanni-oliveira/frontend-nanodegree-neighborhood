@@ -1,11 +1,11 @@
-.stations {
+.places {
     height: 100%;
     background: #0282a5;
     z-index: 1;
     overflow: auto;
 }
 
-.stations .stations-title {
+.places .places-title {
     font-size: 18px;
     color: #002833;
     text-align: center;
@@ -13,29 +13,33 @@
     border-bottom: 2px solid rgba(0, 40, 51, 0.1);
 }
 
-.stations .stations-filter {
+.places .places-filter {
     display: flex;
     height: 40px;
 }
 
-.stations .stations-filter-input {
+.places .places-filter-input {
     padding: 0 10px;
     flex: 1;
 }
 
-.stations .stations-wrapper {
+.places .places-wrapper {
     padding: 30px 0;
     overflow-y: auto;
 }
 
-.stations .stations-wrapper .station {
+.places .places-wrapper .place {
     padding: 10px;
     color: #002833;
     cursor: pointer;
     transition: background .2s ease-in-out;
 }
 
-.stations [aria-pressed="true"],
-.stations .stations-wrapper .station:hover {
+.places [aria-pressed="true"],
+.places .places-wrapper .place:hover {
     background: rgba(8, 0, 0, 0.08);
+}
+
+.places .place-hide {
+    display: none;
 }

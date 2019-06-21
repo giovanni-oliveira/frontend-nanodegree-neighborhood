@@ -43,10 +43,10 @@ body {
 
 @media screen and (min-width: 768px) {
     .menu-opened .app-wrapper {
-        transform: translateX(300px);
+        transform: translateX(400px);
     }
 
     .app .menu-stations {
-        width: 300px;
+        width: 400px;
     }
 }

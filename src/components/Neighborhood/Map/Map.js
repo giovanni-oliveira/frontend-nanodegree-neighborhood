@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
-import "./MapStation.css";
-import pointer from './images/pointer.png';
+import "./Map.css";
+import pointer from '../../../images/pointer.png';
 
-export default class MapStation extends Component {
+/**
+ * Cria a tag `script` para carregamento do google maps, assim que carregada irá executar a função/método `initMap`
+ * @function loadScriptMap
+ * @param {String} key 
+ */
+function loadScriptMap(key = '') {
+    const position = window.document.getElementsByTagName('script')[0];
+
+    const script = window.document.createElement('script');
+    script.src = `//maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`;
+    script.async = true;
+    script.defer = true;
+    script.onerror = () => alert('O Google maps não foi carregado corretamente.')
+
+    position.parentNode.insertBefore(script, position);
+}
+
+class NeighborhoodMap extends Component {
     constructor(props) {
         super(props);
 
@@ -14,7 +31,7 @@ export default class MapStation extends Component {
 
         /**
          * Instância dos ponteiros do mapa
-         * @type {Object[]} Objeto do tipo `google.maps.Marker`
+         * @type {Object[]} Objetos do tipo `google.maps.Marker`
          */
         this.markers = [];
 
@@ -43,7 +60,7 @@ export default class MapStation extends Component {
 
     /**
      * Efetua o carregamento do script do google maps e o adiciona o método `this.initMap` no escopo `window`
-     * @memberof MapStation
+     * @memberof NeighborhoodMap
      * @method renderMap
      */
     renderMap() {
@@ -53,45 +70,45 @@ export default class MapStation extends Component {
     }
 
     /**
-     * Cria a instância do `google.maps.Map`
-     * @memberof MapStation
+     * Cria a instância do `google.maps.Map` no elemento `.map-container`
+     * @memberof NeighborhoodMap
      * @method createMap 
+     * @param mapConfig
      * @return {Object} Objeto do tipo google.maps.Map
      */
-    createMap() {
+    createMap(mapConfig) {
         return new window.google.maps.Map(
-            document.getElementById('map'),
-            this.props.mapsConfig
+            document.querySelector('.map-container'),
+            mapConfig
         );
     }
 
     /**
      * Cria um vetor de `google.maps.Marker`
-     * @memberof MapStation
+     * @memberof NeighborhoodMap
      * @method createMarkers 
      * @param {Object} map Objecto do tipo `google.maps.Map`
      * @return {Object[]} Vetor de objetos do tipo google.maps.Marker
      */
     createMarkers(map) {
-        const createMarker = station => new window.google.maps.Marker({
+        const markers = this.props.stations.map(({ location, id, title }) => new window.google.maps.Marker({
             map,
             position: {
-                lat: station.location.lat,
-                lng: station.location.lng
+                lat: location.lat,
+                lng: location.lng
             },
-            title: station.title,
+            title,
             animation: window.google.maps.Animation.DROP,
             icon: pointer,
-            station,
-            venueId: station.location.venueId
-        });
+            venueId: id
+        }));
 
-        return this.props.stations.map(createMarker);
+        return markers;
     }
 
     /**
      * Cria o conteúdo da janela de informação do ponteiro
-     * @memberof MapStation
+     * @memberof NeighborhoodMap
      * @method createContentInfoWindow 
      * @param {Object} selectedStation
      * @return {String}
@@ -128,18 +145,19 @@ export default class MapStation extends Component {
 
     /**
      * Inicia o mapa no elemento `#map`
-     * @memberof MapStation
+     * @memberof NeighborhoodMap
      * @method initMap 
      */
     initMap() {
-        const map = this.createMap();
+        const { mapsConfig, onMarkerClick } = this.props;
+        const map = this.createMap(mapsConfig);
         const markers = this.createMarkers(map);
         const infowindow = new window.google.maps.InfoWindow();
-        const props = this.props;
+
 
         markers.forEach(marker => {
             marker.addListener('click', function () {
-                props.onMarkerClick(marker.station);
+                onMarkerClick(marker.venueId);
             });
         });
 
@@ -182,19 +200,4 @@ export default class MapStation extends Component {
     }
 };
 
-/**
- * Cria a tag `script` para carregamento do google maps, assim que carregada irá executar a função/método `initMap`
- * @function loadScriptMap
- * @param {String} key 
- */
-function loadScriptMap(key = '') {
-    const position = window.document.getElementsByTagName('script')[0];
-
-    const script = window.document.createElement('script');
-    script.src = `//maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`;
-    script.async = true;
-    script.defer = true;
-    script.onerror = () => alert('O Google maps não foi carregado corretamente.')
-
-    position.parentNode.insertBefore(script, position);
-}
+export default NeighborhoodMap;

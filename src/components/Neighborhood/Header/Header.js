@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css'
 
-const Header = ({ clickMenu }) => {
+const NeighborhoodHeader = ({ clickMenu }) => {
     const showCpyrightOfFeatures = () => {
         alert(`
         A lista de estações originalmente foi obtida através do repositório https://gist.github.com/rafaelrinaldi/6a82dd1eceed6dfc7deb
@@ -27,4 +27,4 @@ const Header = ({ clickMenu }) => {
     );
 }
 
-export default Header;
+export default NeighborhoodHeader;
