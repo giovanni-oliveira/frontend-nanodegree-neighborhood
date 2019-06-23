@@ -25,9 +25,9 @@ class NeighborhoodMap extends Component {
 
         /**
          * Instância do mapa
-         * @type {Object} Objeto do tipo `google.maps.Map`
+         * @type {Object|Boolean} Objeto do tipo `google.maps.Map`
          */
-        this.map = {};
+        this.map = false;
 
         /**
          * Instância dos ponteiros do mapa
@@ -40,12 +40,6 @@ class NeighborhoodMap extends Component {
          * @type {Object} Objeto do tipo `google.maps.InfoWindow`
          */
         this.infowindow = {};
-
-        /**
-         * Indica se o mapa foi carregado
-         * @type {Boolean}
-         */
-        this.initializedMap = false;
     }
 
     componentDidMount() {
@@ -53,7 +47,7 @@ class NeighborhoodMap extends Component {
     }
 
     componentWillReceiveProps(props) {
-        if (!this.initializedMap) return;
+        if (!this.map) return;
 
         this.setMarkersOnMap(props);
     }
@@ -87,11 +81,12 @@ class NeighborhoodMap extends Component {
      * Cria um vetor de `google.maps.Marker`
      * @memberof NeighborhoodMap
      * @method createMarkers 
-     * @param {Object} map Objecto do tipo `google.maps.Map`
+     * @param {Object[]} places Vetor com as informações necessárias para criar um marcador
+     * @param {Object} map Objeto do tipo `google.maps.Map`
      * @return {Object[]} Vetor de objetos do tipo google.maps.Marker
      */
-    createMarkers(map) {
-        const markers = this.props.stations.map(({ location, id, title }) => new window.google.maps.Marker({
+    createMarkers(places, map) {
+        const markers = places.map(({ location, id, title }) => new window.google.maps.Marker({
             map,
             position: {
                 lat: location.lat,
@@ -149,9 +144,9 @@ class NeighborhoodMap extends Component {
      * @method initMap 
      */
     initMap() {
-        const { mapsConfig, onMarkerClick } = this.props;
+        const { mapsConfig, onMarkerClick, stations } = this.props;
         const map = this.createMap(mapsConfig);
-        const markers = this.createMarkers(map);
+        const markers = this.createMarkers(stations, map);
         const infowindow = new window.google.maps.InfoWindow();
 
 
@@ -165,31 +160,29 @@ class NeighborhoodMap extends Component {
         this.map = map;
         this.markers = markers;
         this.infowindow = infowindow;
-        this.initializedMap = true;
     }
 
     setMarkersOnMap({ stations, selectedStation }) {
-        const markers = this.markers;
-        const map = this.map;
+        const { markers, map } = this;
 
         markers.forEach(marker => {
-            const station = stations.some(station => station.location.venueId === marker.venueId);
+            const place = stations.some(station => station.id === marker.venueId);
 
-            if (!station) marker.setMap(null);
-            if (station && marker.map === null) marker.setMap(map);
+            if (!place) marker.setMap(null);
+            if (place && marker.map === null) marker.setMap(map);
         });
 
         markers.forEach(marker => {
-            if (marker.station.pressed) {
-                this.openInfoWindow(map, marker, selectedStation);
+            // if (marker.station.pressed) {
+            //     this.openInfoWindow(map, marker, selectedStation);
 
-                if (marker.getAnimation() !== null) {
-                    marker.setAnimation(null);
-                } else {
-                    marker.setAnimation(window.google.maps.Animation.BOUNCE);
-                    setTimeout(() => marker.setAnimation(null), 300);
-                }
-            };
+            //     if (marker.getAnimation() !== null) {
+            //         marker.setAnimation(null);
+            //     } else {
+            //         marker.setAnimation(window.google.maps.Animation.BOUNCE);
+            //         setTimeout(() => marker.setAnimation(null), 300);
+            //     }
+            // };
         })
     }
 
